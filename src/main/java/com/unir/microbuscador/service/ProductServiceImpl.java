@@ -29,6 +29,17 @@ public class ProductServiceImpl implements ProductService {
         return productoRepository.findById(Long.valueOf(productId)).orElse(null);
     }
 
+
+    @Override
+    public Productosimple updateProduct(String productId, Productosimple productosimple) {
+
+        Productosimple productosimple1 = productoRepository.findById(Long.valueOf(productId)).orElse(null);
+        productosimple1.setProSimCantidad(productosimple.getProSimCantidad());
+        productoRepository.save(productosimple1);
+        System.out.println("prod1"+productosimple1);
+        return productosimple1;
+    }
+
     @Override
     public Boolean removeProduct(String productId) {
         return null;

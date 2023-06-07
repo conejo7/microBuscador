@@ -12,6 +12,9 @@ public interface ProductService {
 
     Productosimple getProduct(String productId);
 
+    Productosimple updateProduct(String productId, Productosimple productosimple);
+
+
     Boolean removeProduct(String productId);
 
     Productosimple createProduct(CreateProductRequest request);

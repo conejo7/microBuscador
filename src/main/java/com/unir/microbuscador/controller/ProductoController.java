@@ -5,10 +5,7 @@ import com.unir.microbuscador.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -38,6 +35,20 @@ public class ProductoController {
         log.info("Request received for product {}", productId);
         Productosimple product = service.getProduct(productId);
 
+        if (product != null) {
+            return ResponseEntity.ok(product);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+
+    }
+
+    @PutMapping("/products/{productId}")
+    public ResponseEntity<Productosimple> updateProduct(@PathVariable String productId, @RequestBody Productosimple productosimple) {
+
+        log.info("Request received for product {}", productId);
+        Productosimple product = service.updateProduct(productId,productosimple);
+        System.out.println("producto actualizado"+product);
         if (product != null) {
             return ResponseEntity.ok(product);
         } else {
