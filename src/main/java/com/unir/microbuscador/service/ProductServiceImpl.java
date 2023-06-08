@@ -56,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
 
             Productosimple product = Productosimple.builder().proSimDescripcion(request.getProSimDescripcion()).
                     proSimCantidad(request.getProSimCantidad())
-                    .proSimPrecio(request.getProSimPrecio()).proSimId(request.getProSimId()).build();
+                    .proSimPrecio(request.getProSimPrecio()).build();
 
             return productoRepository.save(product);
         } else {
