@@ -1,13 +1,19 @@
 package com.unir.microbuscador.model.pojo;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.math.BigDecimal;
-import java.util.Objects;
+
 
 @Data
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@ToString
 public class Productosimple {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id

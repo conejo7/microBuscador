@@ -46,9 +46,9 @@ public class ProductoController {
     @PutMapping("/products/{productId}")
     public ResponseEntity<Productosimple> updateProduct(@PathVariable String productId, @RequestBody Productosimple productosimple) {
 
-        log.info("Request received for product {}", productId);
+
         Productosimple product = service.updateProduct(productId,productosimple);
-        System.out.println("producto actualizado"+product);
+
         if (product != null) {
             return ResponseEntity.ok(product);
         } else {
@@ -56,5 +56,7 @@ public class ProductoController {
         }
 
     }
+
+
 
 }
